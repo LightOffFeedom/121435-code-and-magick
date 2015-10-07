@@ -27,17 +27,17 @@
 
         reviewFragment.appendChild(newReview);
         if (review.author.picture) {
-            var reviewBackground=new Image();
-            reviewBackground.src=review.author.picture;
-        }
+            var reviewBackground = new Image();
+            reviewBackground.src = review.author.picture;
 
-        reviewBackground.onload = function() {
-            newReview.style.backgroundImage = review.author.picture;
-            newReview.style.backgroundSize = '100% auto';
-        }
+            reviewBackground.onload = function () {
+                newReview.style.backgroundImage = review.author.picture;
+                newReview.style.backgroundSize = '100% auto';
+            }
 
-        reviewBackground.onerror = function(evt) {
-            newReview.classList.add('review-load-failure');
+            reviewBackground.onerror = function (evt) {
+                newReview.classList.add('review-load-failure');
+            }
         }
 
 
