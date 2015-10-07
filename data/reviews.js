@@ -10,7 +10,7 @@ var reviews = [
   {
     "author": {
       "name": "Ксения Собчак",
-      "picture": "img/use21d.png"
+      "picture": "img/user21d.png"
     },
     "rating": 5,
     "description": "Все хорошо, мне нравится."
