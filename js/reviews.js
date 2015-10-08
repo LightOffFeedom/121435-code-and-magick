@@ -1,7 +1,7 @@
 /**
  * Created by odin on 06.10.15.
  */
-(function() {
+
     var starsClassName = {
         '1':'review-rating-one',
         '2':'review-rating-two',
@@ -33,6 +33,10 @@
             reviewBackground.onload = function () {
                 newReview.style.backgroundImage = review.author.picture;
                 newReview.style.backgroundSize = '100% auto';
+                var sp1=reviewBackground;
+                var sp2=oTemplate.querySelector('img');
+                oTemplate.replaceChild(sp1, sp2);
+
             }
 
             reviewBackground.onerror = function (evt) {
@@ -45,7 +49,6 @@
 
     oReviewsContainer.appendChild(reviewFragment);
 
-})()
 
 
 
