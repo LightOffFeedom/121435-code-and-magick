@@ -1,7 +1,7 @@
 /**
  * Created by odin on 06.10.15.
  */
-(function{
+(function () {
     var starsClassName = {
         '1': 'review-rating-one',
         '2': 'review-rating-two',
@@ -26,28 +26,29 @@
         newReview.querySelector('.review-text').textContent = review['description'];
 
         reviewFragment.appendChild(newReview);
-        if (review.author.picture) {
-            var reviewBackground = new Image();
-            reviewBackground.src = review.author.picture;
+      if (!review.author.picture) {
+      } else {
+        var reviewBackground = new Image();
+        reviewBackground.src = review.author.picture;
 
-            reviewBackground.onload = function () {
-                newReview.style.backgroundImage = review.author.picture;
-                newReview.style.backgroundSize = '100% auto';
-                var sp1 = reviewBackground;
-                var sp2 = oTemplate.querySelector('img');
-                oTemplate.replaceChild(sp1, sp2);
-
-            }
-
-            reviewBackground.onerror = function (evt) {
-                newReview.classList.add('review-load-failure');
-            }
+        reviewBackground.onload = function () {
+          newReview.style.backgroundImage = review.author.picture;
+          newReview.style.backgroundSize = '124px 124px';
+          var sp1 = reviewBackground;
+          var sp2 = oTemplate.content.children[0].querySelector('img');
+          var parentDiv= sp2.parentNode;
+          parentDiv.replaceChild(sp1, sp2);
         }
+
+        reviewBackground.onerror = function (evt) {
+          newReview.classList.add('review-load-failure');
+        }
+      }
 
 
     });
-
     oReviewsContainer.appendChild(reviewFragment);
+    document.querySelector('.reviews-filter').classList.remove('invisible');
 
 })()
 
